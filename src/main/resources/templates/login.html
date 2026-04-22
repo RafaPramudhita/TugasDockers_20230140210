@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - My Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e9ecef; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 350px; }
+        .login-card h2 { margin-bottom: 20px; text-align: center; color: #333; }
+        .input-box { margin-bottom: 20px; }
+        .input-box label { display: block; margin-bottom: 8px; }
+        .input-box input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .btn-login { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn-login:hover { background-color: #0056b3; }
+        .footer-text { font-size: 12px; text-align: center; margin-top: 20px; color: #777; }
+    </style>
+</head>
+<body>
+<div class="login-card">
+    <h2>Login Admin</h2>
+    <form th:action="@{/login}" method="post">
+        <div class="input-box">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="admin" required>
+        </div>
+        <div class="input-box">
+            <label>Password (NIM)</label>
+            <input type="password" name="password" placeholder="Masukkan NIM" required>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+    <div class="footer-text">
+        Sistem Informasi Mahasiswa &copy; 2026
+    </div>
+</div>
+</body>
+</html>
