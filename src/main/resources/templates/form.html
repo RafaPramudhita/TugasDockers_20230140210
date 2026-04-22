@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Data - My Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        h2 { text-align: center; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .radio-group { margin: 10px 0; }
+        button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #218838; }
+        .back-link { display: block; text-align: center; margin-top: 15px; text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Form Input Mahasiswa</h2>
+    <form th:action="@{/save}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label>Nama Lengkap:</label>
+            <input type="text" th:field="*{nama}" placeholder="Masukkan nama..." required>
+        </div>
+        <div class="form-group">
+            <label>NIM:</label>
+            <input type="text" th:field="*{nim}" placeholder="Masukkan NIM..." required>
+        </div>
+        <div class="form-group">
+            <label>Jenis Kelamin:</label>
+            <div class="radio-group">
+                <input type="radio" th:field="*{jenisKelamin}" value="Laki-laki" required> Laki-laki
+                <input type="radio" th:field="*{jenisKelamin}" value="Perempuan"> Perempuan
+            </div>
+        </div>
+        <button type="submit">Simpan Data</button>
+    </form>
+    <a th:href="@{/home}" class="back-link">Kembali ke Home</a>
+</div>
+</body>
+</html>
