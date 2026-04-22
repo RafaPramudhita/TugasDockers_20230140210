@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - My Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .header-section {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-section">
+    <h1>MY Website 20230140210</h1>
+    <p>Selamat datang di aplikasi pengelolaan data mahasiswa!</p>
+</div>
+
+<div class="nav-links">
+    <a th:href="@{/form}">[+] Input Data Mahasiswa</a> |
+    <a th:href="@{/logout}" style="color: red;">Logout</a>
+</div>
+
+<h3>Daftar Mahasiswa Terdaftar</h3>
+<table>
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Nama Lengkap</th>
+        <th>NIM</th>
+        <th>Jenis Kelamin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${users.empty}">
+        <td colspan="4" style="text-align: center;">Data masih kosong. Silakan input data terlebih dahulu.</td>
+    </tr>
+    <tr th:each="user, stat : ${users}">
+        <td th:text="${stat.count}">1</td>
+        <td th:text="${user.nama}">Nama</td>
+        <td th:text="${user.nim}">NIM</td>
+        <td th:text="${user.jenisKelamin}">Jenis Kelamin</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
